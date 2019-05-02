@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const sportsRouter = require('./router');
+const CVRouter = require('./router');
 const app = express();
 mongoose.Promise  = global.Promise;
 
@@ -11,7 +11,7 @@ const jsonParser = bodyParser.json();
 
 app.use(express.static('public'));
 
-app.use('/sports/api', jsonParser, sportsRouter);
+app.use('/CVUsers/api', jsonParser, CVRouter);
 
 let server;
 
