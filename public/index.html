@@ -1,40 +1,236 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>This is the index </title>
-    <link href="./index.css" type="text/css" rel="stylesheet">
-  </head>
-  <body>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>Cv Maker! </title>
+      <link href="./index.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
 
-    <form class="retrieveSports">
-      <button type="submit" class="getSports">
-        Click me to retrieve the list of sports
-      </button>
-    </form>
 
-    <br>
+      <ul>
+      <li><a href=".">Home</a></li>
+      <li><a href="mailto:a01196011@itesm.mx">Send me an email!</a></li>
 
-    <form class="createSport">
-      <label for="sportName"> Name: </label>
-      <input id="sportName" type="text">
-      <label for="sportId"> ID: </label>
-      <input id="sportId" type="number">
+      </ul>
+
+
+      <div id = "Whole">
+
+    <div class="hero-image" id = "hero-imageDiv">
+    <div class="hero-text">
+
+  <form class="retrieveUsers" style="visibility: hidden">
+        <button type="submit" class="getSports">
+          List of Users
+        </button>
+      </form>
+
+      <div id = "LoginDiv">
+      <form class="Login">
+        <h1>CvMaker login!</h1>
+        <br>
+
+        <label for="LoginUserName"> UserName: </label>
+        <input id="LoginUserName" type="text">
+        <label for="LoginPass"> Password: </label>
+        <input id="LoginPass" type="password">
+        <button type="submit" class="LoginUser">
+          Login
+        </button>
+
+        </form>
+
+        
+  <br>
+      <form class="NewUserButton">
+        <button type="submit" class="ShowNewUser">
+          New User
+        </button>
+      </form>
+
+      <br>
+
+      <div id="NewUserDiv" style="visibility: hidden">
+        <br>
+       <form class="createUser">
+        <label for="Instructions"  > User names are unique and can no be repeated </label>
+         <br>
+
+        <label for="NewUserName" > UserName: </label>
+        <input id="NewUserName" type="text" >
+        <label for="NewPass" > Password: </label>
+        <input id="NewPass" type="password" >
+      
+        <button type="submit" class="postUser" >
+          Send
+        </button>
+      </form>
+         </div>
+          </div>
+          <br><br><br><br>
+          <button type="button" id ="RandomTip" class="RandomTip">
+          Random Interview Tip
+        </button>
+
+    </div>
+    </div>
+
+
+
+
+
+  <div class="hero-image2" id = "hero-imageDiv2" style="display: none" >
+     <div class="UserData" id="TitleUserNameDiv" > 
+    <div class="TitleUserName" id="TitleUserNameDiv" > 
+     
+
+    </div>
     
-      <button type="submit" class="postSport">
-        Send
-      </button>
+      <div id=listOfTips style="display: none">
+        
+      </div>
+
+       <div id=listOfCvs style="display: none">
+        
+      </div>
+
+      <div id=listOfUsersTips style="display: none">
+        
+      </div>
+
+
+    <label id="Return" ></label> <button type="button" id="ReturnTips" style="display: none"> Return to main Menu  </button>
+    <form class="mainMenu" id ="mainMenu">
+      <h1> <label id="DataUserName" ></label> </h1>
+      
+
+
+
+      <label id="CantCVs" ></label> <button type="button" id="NewCv"  > Create a new Cv</button>
+      <br> <br>
+      <label id="CantTips" ></label> <button type="button" id="SeeTips" > See your tips</button>
+      <br> <br>
+      <label id="PrimaryCV" ></label><button type="button" id="SeeCv" > See your CVs</button>
+      <br> <br>
+      <label>Would you like to review other CV's?</label><button type="button" id="RevTips" > Review Tips</button>
     </form>
 
-    <ul id="listOfSports">
 
-    </ul>
 
-    <script
-	  src="https://code.jquery.com/jquery-3.3.1.js"
-	  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-	  crossorigin="anonymous"></script>
-    <script src="index.js"></script>
-  </body>
-</html>
+
+
+    <div class="NewCvStyle" id ="CreateANewCv" style="display: none" >
+
+      
+     <div class="PersonalStyle" id ="PersonalStyle" >
+
+
+      <h3> Personal data</h3>
+       <label for="FullName"> Full Name: </label>
+      <input id="FullName" type="text">
+      <br>
+      <label for="email"> email: </label>
+      <input id="email" type="text">
+      <br>
+      <label for="CellPhone">      CellPhone: </label>
+      <input id="CellPhone" type="text">
+      <br>
+      <label for="Objective"> Objective: </label><br>
+      <textarea rows = "5" cols = "50" name = "description" id="Objective">
+              Be concise while writing your objective
+           </textarea>
+      <br>
+    </div>
+
+
+
+    <div class="Educationskills" id ="Educationskills" >
+      <h3> Education</h3>
+      <label for="University"> Univeristy: </label>
+      <input id="University" type="text">
+      <br>
+      <label for="Major"> Major: </label>
+      <input id="Major" type="text">
+      <h3> Skills</h3>
+
+      <label for="OfficeSkills"> Office Skills: </label><br>
+      <textarea rows = "5" cols = "50" name = "description" id="OfficeSkills">
+              Write here your personal, non technical skills
+           </textarea>
+      <br>
+      <label for="TechnicalSkills"> Technical Skills: </label><br>
+      <textarea rows = "5" cols = "50" name = "description" id="TechnicalSkills">
+              Write here your technical skills
+           </textarea>
+          </div>
+
+
+
+
+          <div class="ExperienceReferences" id ="ExperienceReferences" >
+      <h3> Experience</h3>
+      <h4> Most recent company</h4>
+      <label for="Company1"> Company: </label>
+      <input id="Company1" type="text"><br>
+
+      <label for="Position1"> Position: </label>
+      <input id="Position1" type="text"><br>
+
+      <label for="Location1"> Location: </label>
+      <input id="Location1" type="text"><br>
+
+      <label for="Years1"> Years: </label>
+      <input id="Years1" type="text" value=" 1999-2019"><br>
+        <h4>Second Most recent company</h4>
+      <label for="Company2"> Company: </label>
+      <input id="Company2" type="text"><br>
+
+      <label for="Position2"> Position: </label>
+      <input id="Position2" type="text"><br>
+
+      <label for="Location2"> Location: </label>
+      <input id="Location2" type="text"><br>
+
+      <label for="Years2"> Years: </label>
+      <input id="Years2" type="text" value=" 2009-2019"><br>
+
+
+
+
+      <h3> Hobbies</h3>
+      <label for="Hobbies"> Hobbies: </label><br>
+      <textarea rows = "5" cols = "50" name = "description" id="Hobbies">
+              Write here your Hobbies
+           </textarea>
+
+      <h3> References</h3>
+
+      <label for="References"> References: </label><br>
+      <textarea rows = "5" cols = "50" name = "description" id="References">
+              Write here your References
+           </textarea>
+
+    </div>
+    <label id="SendCV" ></label><button type="button" id="SendCv" class="SendCv2"> Send your CV</button><br><br>
+    </div>
+     </div> 
+    </div>
+    </div>
+
+     
+
+
+
+
+
+
+
+      <script
+  	  src="https://code.jquery.com/jquery-3.3.1.js"
+  	  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  	  crossorigin="anonymous"></script>
+      <script src="index.js"></script>
+    </body>
+  </html>

@@ -2,37 +2,67 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-let sportSchema = mongoose.Schema({
-	id : {type : Number, required : true, unique : true},
-	name : {type : String, required : true}
+let UserSchema = mongoose.Schema({
+	user : {type : String, required : true, unique : true},
+	pass : {type : String, required : true},
+	cantCv : {type : Number, required : true},
+	PrimaryCV : {type : Number, required : true},
+	FullName : [{type : String}],
+	email : [{type : String}],
+	CellPhone : [{type : String}],
+	Objective : [{type : String}],
+	University : [{type : String}],
+	Major : [{type : String}],
+	OfficeSkills : [{type : String}],
+	TechnicalSkills : [{type : String}],
+	Company1 : [{type : String}],
+	Position1 : [{type : String}],
+	Location1 : [{type : String}],
+	Years1 : [{type : String}],
+	Company2 : [{type : String}],
+	Position2 : [{type : String}],
+	Location2 : [{type : String}],
+	Years2 : [{type : String}],
+	Hobbies : [{type : String}],
+	References : [{type : String}],
+
+
+	Tips : [{type : String}]
+	
 });
 
-let Sports = mongoose.model('Sports', sportSchema);
+let users = mongoose.model('Users', UserSchema);
 
-const ListSports = {
+const ListUser = {
 	get : function(){
-		return Sports.find()
-			.then(sports => {
-				return sports;
+		//error aqui
+		return users.find()
+			.then(User => {
+				console.log(User)
+				return User;
 			})
 			.catch(err => {
 				 throw new Error(err);
 			});
 	} ,
-	post : function(newSport){
-		return Sports.create(newSport)
-			.then(sport => {
-				return sport;
+
+
+	post : function(newUser){
+		return users.create(newUser)
+			.then(User => {
+				return User;
 			})
 			.catch(err => {
 				 throw new Error(err);
 			});
 	},
-	getById : function(sportId){
-		return Sports.findOne({id : sportId})
-			.then(sport => {
-				if (sport){
-					return sport;
+
+	updateField : function(userT, newData){
+		
+		return users.updateOne({user : userT}, { $push: newData }, { new: true })
+			.then(user => {
+				if (user){
+					return user;
 				}
 				throw new Err("Sport not found");
 			})
@@ -40,11 +70,13 @@ const ListSports = {
 				throw new Error(err);
 			});
 	},
-	put : function(sportId, newData){
-		return Sports.findOneAndUpdate({id : sportId}, { $set: newData }, { new: true })
-			.then(sport => {
-				if (sport){
-					return sport;
+
+	updateFieldPrimary : function(userT, newData){
+		
+		return users.updateOne({user : userT}, { $set: newData }, { new: true })
+			.then(user => {
+				if (user){
+					return user;
 				}
 				throw new Err("Sport not found");
 			})
@@ -52,21 +84,64 @@ const ListSports = {
 				throw new Error(err);
 			});
 	},
-	delete : function(sportId){
-		return Sports.findOneAndRemove({id : sportId})
-			.then(sport => {
-				if (sport){
-					return sport;
+
+	delete : function(userT, data){
+
+		return users.replaceOne({user : userT}, data)
+			.then(user => {
+				if (user){
+					return user;
 				}
 				throw new Err("Sport not found");
+			})
+			.catch(err =>{
+				throw new Error(err);
+			});
+		
+
+
+	},
+
+	decrese : function(userT, newData){
+
+		return users.updateOne({user : userT},{ $inc: {cantCv: -1 } })
+			.then(user => {
+				if (user){
+					return user;
+				}
+				throw new Err("Sport not found");
+			})
+			.catch(err =>{
+				throw new Error(err);
+			});
+	},
+
+	increment : function(userT, newData){
+
+		return users.updateOne({user : userT},{ $inc: {cantCv: 1 } })
+			.then(user => {
+				if (user){
+					return user;
+				}
+				throw new Err("Sport not found");
+			})
+			.catch(err =>{
+				throw new Error(err);
+			});
+	},
+
+	login : function(userT){
+		return users.findOne({user: userT})
+			.then(User => {
+				return User;
 			})
 			.catch(err => {
-				throw new Error(err);
-			})
+				 throw new Error(err);
+			});
 	}
-}
+	}
 
-module.exports = {ListSports};
+module.exports = {ListUser};
 
 
 

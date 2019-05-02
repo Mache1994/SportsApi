@@ -11,7 +11,7 @@ const jsonParser = bodyParser.json();
 
 app.use(express.static('public'));
 
-app.use('/CVUsers/api', jsonParser, CVRouter);
+app.use('/cvusers/api', jsonParser, CVRouter);
 
 let server;
 
